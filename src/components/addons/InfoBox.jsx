@@ -116,7 +116,7 @@ export class InfoBox extends React.PureComponent {
   componentDidMount() {
     componentDidMount(this, this.state[INFO_BOX], eventMap)
     const content = document.createElement(`div`)
-    ReactDOM.unstable_renderSubtreeIntoContainer(
+    ReactDOM.createPortal(
       this,
       React.Children.only(this.props.children),
       content
@@ -134,7 +134,7 @@ export class InfoBox extends React.PureComponent {
       prevProps
     )
     if (this.props.children !== prevProps.children) {
-      ReactDOM.unstable_renderSubtreeIntoContainer(
+      ReactDOM.createPortal(
         this,
         React.Children.only(this.props.children),
         this.state[INFO_BOX].getContent()

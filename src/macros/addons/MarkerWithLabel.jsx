@@ -103,7 +103,7 @@ export class MarkerWithLabel extends React.PureComponent {
   componentDidMount() {
     componentDidMount(this, this.state[MARKER_WITH_LABEL], eventMap)
     const container = document.createElement(`div`)
-    ReactDOM.unstable_renderSubtreeIntoContainer(
+    ReactDOM.createPortal(
       this,
       React.Children.only(this.props.children),
       container
@@ -120,7 +120,7 @@ export class MarkerWithLabel extends React.PureComponent {
       prevProps
     )
     if (this.props.children !== prevProps.children) {
-      ReactDOM.unstable_renderSubtreeIntoContainer(
+      ReactDOM.createPortal(
         this,
         React.Children.only(this.props.children),
         this.state[MARKER_WITH_LABEL].get("labelContent")

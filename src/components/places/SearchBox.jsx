@@ -117,7 +117,7 @@ export class SearchBox extends React.PureComponent {
   }
 
   handleRenderChildToContainerElement() {
-    ReactDOM.unstable_renderSubtreeIntoContainer(
+    ReactDOM.createPortal(
       this,
       React.Children.only(this.props.children),
       this.containerElement
